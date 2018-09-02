@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   
   def new
+    @user= User.new
   end
 
 
@@ -10,9 +11,9 @@ class SessionsController < ApplicationController
 #       Existing user
       if @user = User.find_by(uid: auth_hash['uid'])
         session[:user_id] = @user.id
-        
         redirect_to user_path(@user)
       else
+#         New user
         @user = User.new(uid: auth_hash['uid'], name: auth_hash['info']['first_name'], password: SecureRandom.hex)
         if @user.save
           session[:user_id] = @user.id
@@ -20,8 +21,8 @@ class SessionsController < ApplicationController
         end
       end
     else
-      @user = User.find_by(name: params[:name])
-        if @user && @user.authenticate(params[:password])
+      @user = User.find_by(name: params[:user][:name])
+        if @user && @user.authenticate(params[:user][:password])
           session[:user_id] = @user.id
           redirect_to user_path(@user)
         else 
