@@ -20,6 +20,7 @@ class CampsitesController < ApplicationController
   
   def show
     @campsite = Campsite.find_by(id: params[:id])
+    @comment = @campsite.comments.build
   end
   
   def edit
