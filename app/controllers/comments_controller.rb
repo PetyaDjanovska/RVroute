@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   def new
+    @campsite = Campsite.find_by(id: params[:campsite_id])
+    @comment = @campsite.comments.build
   end
   
   def create
@@ -7,11 +9,12 @@ class CommentsController < ApplicationController
     @comment = @campsite.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.save
-    redirect_to campsite_path(@campsite)
+    redirect_to campsite_comments_path(@campsite)
   end
   
   def index
-    @comments = Comment.all
+    @campsite = Campsite.find_by(id: params[:campsite_id])
+    @comments = @campsite.comments
   end
   
  private
