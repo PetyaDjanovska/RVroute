@@ -1,4 +1,5 @@
 class CampsitesController < ApplicationController
+  
   def index
     @campsites = Campsite.all
   end
@@ -10,7 +11,7 @@ class CampsitesController < ApplicationController
   def create
     @campsite = Campsite.find_by(name: params[:campsite][:name])
     if @campsite
-      # flash[:notice] = "A campsite with that name already exists!"
+      # flash[:message] = "A campsite with that name already exists!"
       redirect_to new_campsite_path
     else
       @campsite = Campsite.create(campsite_args)
@@ -37,12 +38,5 @@ class CampsitesController < ApplicationController
   def campsite_args
     params.require(:campsite).permit(:name, :address, :description)
   end
-end
 
-          # campsites GET   /campsites(.:format)                                                                     campsites#index
-                          # POST  /campsites(.:format)                                                                     campsites#create
-             # new_campsite GET   /campsites/new(.:format)                                                                 campsites#new
-            # edit_campsite GET   /campsites/:id/edit(.:format)                                                            campsites#edit
-                 # campsite GET   /campsites/:id(.:format)                                                                 campsites#show
-                          # PATCH /campsites/:id(.:format)                                                                 campsites#update
-                          # PUT   /campsites/:id(.:format)                                                                 campsites#update
+end

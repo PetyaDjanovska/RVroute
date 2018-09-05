@@ -3,12 +3,13 @@
 	<h3><%= campsite.name %></h3>
 	<%= campsite.address %></br>
 	<%= campsite.description %></br>
-	<%= link_to "Add to my favorites" %>
 	
-	<form action='/users/home/add_to_fav' method='post'>
-			<input type="hidden" value="<%= c.id %>" name="campsite_id">
-    		<input type="submit" value="Add to my favorites" />
-	</form>
+		<%= form_tag("/favorites", method: "post") do %>
+		  <%= hidden_field_tag(:campsite_id, campsite.id) %>
+		  <%= label_tag(:note, "Add a note to your favorite") %>
+		  <%= text_field_tag(:note) %>
+		  <%= submit_tag("Add to favorites") %>
+		<% end %>
 </p>
 <% end %>
 

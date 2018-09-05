@@ -1,0 +1,8 @@
+<h1>Your favorite campsites are:</h1>
+<% @campsites.each do |campsite| %>
+<p>
+	<h3><%= campsite.name %></h3>
+	<%= campsite.address %></br>
+	<%= campsite.description %></br>
+</p>
+<% end %>
