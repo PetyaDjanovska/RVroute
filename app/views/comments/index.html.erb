@@ -1,0 +1,10 @@
+<h2>Comments:</h2>
+	<% @campsite.comments.each do |comment| %>
+	<p>
+		<h3><%= comment.title %></h3>
+		<%= comment.text %></br>
+		--------------------------------
+	</p>
+	<% end %>
+
+<%= link_to "Add a comment", new_campsite_comment_path(@campsite) %>

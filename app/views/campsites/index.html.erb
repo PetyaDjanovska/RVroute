@@ -1,0 +1,14 @@
+<% @campsites.each do |campsite| %>
+<p>
+	<h3><%= campsite.name %></h3>
+	<%= campsite.address %></br>
+	<%= campsite.description %></br>
+	<%= link_to "Add to my favorites" %>
+	
+	<form action='/users/home/add_to_fav' method='post'>
+			<input type="hidden" value="<%= c.id %>" name="campsite_id">
+    		<input type="submit" value="Add to my favorites" />
+	</form>
+</p>
+<% end %>
+

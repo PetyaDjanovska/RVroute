@@ -1,5 +1,3 @@
 <%= form_for @user, url: 'signup' do |f|%>
-Name: <%= f.text_field :name %>
-Password: <%= f.password_field :password %>
-<%= f.submit "Submit" %>
+<%= render 'form'%>
 <% end %>

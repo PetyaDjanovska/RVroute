@@ -1,0 +1,8 @@
+<h1><%= @campsite.name %></h1>
+
+<h3>Address: <%= @campsite.address %></h3>
+<h3>Description:</h3>
+<p><%= @campsite.description %></p>
+
+	
+<%= link_to "See comments", campsite_comments_path(@campsite) %>
