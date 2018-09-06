@@ -1,6 +1,6 @@
 <% @campsites.each do |campsite| %>
 <p>
-	<h3><%= campsite.name %></h3>
+	<h3><%= link_to campsite.name, campsite_path(campsite) %></h3>
 	<%= campsite.address %></br>
 	<%= campsite.description %></br>
 	
