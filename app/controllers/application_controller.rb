@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   end
   
   def home
+    render :layout => false
   end
   
   private
