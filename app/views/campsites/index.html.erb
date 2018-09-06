@@ -4,12 +4,14 @@
 	<%= campsite.address %></br>
 	<%= campsite.description %></br>
 	
+	<% if !current_user.favorites.exists?(campsite_id: campsite.id) %>
 		<%= form_tag("/favorites", method: "post") do %>
 		  <%= hidden_field_tag(:campsite_id, campsite.id) %>
 		  <%= label_tag(:note, "Add a note to your favorite") %>
 		  <%= text_field_tag(:note) %>
 		  <%= submit_tag("Add to favorites") %>
 		<% end %>
+	<% end %>
 </p>
 <% end %>
 

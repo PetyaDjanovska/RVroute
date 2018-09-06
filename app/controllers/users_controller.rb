@@ -3,6 +3,7 @@ class UsersController < ApplicationController
    
   def new
     @user = User.new
+        render :layout => "no_nav"
   end
   
   def create

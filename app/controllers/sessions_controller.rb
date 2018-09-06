@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   
   def new
     @user= User.new
+    render :layout => "no_nav"
   end
 
 

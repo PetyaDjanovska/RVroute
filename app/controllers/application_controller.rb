@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
   
   def home
-    render :layout => false
+    render :layout => "no_nav"
   end
   
   private
