@@ -18,4 +18,8 @@ class FavoritesController < ApplicationController
     redirect_to campsites_path
    end
  end
+ 
+ def most_favorite
+   Favorite.most_favorite
+ end
 end

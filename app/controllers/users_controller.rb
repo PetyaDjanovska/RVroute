@@ -1,18 +1,20 @@
 class UsersController < ApplicationController
-   skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :verify_authenticity_token, only: [:create]
+
    
   def new
     @user = User.new
-        render :layout => "no_nav"
+    render :layout => "no_nav"
   end
   
   def create
-    @user = User.create(user_params)
-    if @user
+    @user = User.new(user_params)
+    if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash[:message] = @user.errors.messages.keys[0] + @user.errors.messages.values[0][0]
+      flash[:message] = "User could not be created"
       redirect_to '/'
     end
   end
@@ -23,6 +25,6 @@ class UsersController < ApplicationController
   
 private
   def user_params
-    params.require(:user).permit(:name, :password)
+    params.require(:user).permit(:name, :password, :password_confirmation)
   end
 end

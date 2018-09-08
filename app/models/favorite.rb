@@ -10,4 +10,8 @@ class Favorite < ApplicationRecord
       errors.add :favorite, 'already added to Favorites'
     end
   end
+  
+  def self.most_favorite
+    Favorite.group(:campsite_id).order("count_id DESC").limit(1)
+  end
 end

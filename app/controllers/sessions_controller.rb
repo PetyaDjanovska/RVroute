@@ -27,7 +27,8 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(params[:user][:password])
           session[:user_id] = @user.id
           redirect_to user_path(@user)
-        else 
+        else
+          flash[:message] = "Wrong credentials"
           redirect_to '/'
         end
     end
