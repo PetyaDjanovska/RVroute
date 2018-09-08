@@ -12,6 +12,7 @@ class Favorite < ApplicationRecord
   end
   
   def self.most_favorite
-    Favorite.group(:campsite_id).order("count_id DESC").limit(1)
+    best_id = Favorite.all.group(:campsite_id).count.max_by{|k,v| v}[0]
+    Campsite.find(best_id)
   end
 end

@@ -20,6 +20,6 @@ class FavoritesController < ApplicationController
  end
  
  def most_favorite
-   Favorite.most_favorite
+   @best = Favorite.most_favorite
  end
 end
