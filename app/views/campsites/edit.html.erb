@@ -1,16 +1,4 @@
 <h1>Create a new campsite here</h1>
 <%= form_for @campsite do |f|%>
-	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</p>
-	<p>
-	<%= f.label :address %>
-	<%= f.text_field :address %>
-	</p>
-	<p>
-	<%= f.label :description %>
-	<%= f.text_field :description %>
-	</p>
-	<%= f.submit %>
+	<%= render 'form', f: f %>
 <% end%>
