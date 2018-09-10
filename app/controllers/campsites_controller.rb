@@ -11,7 +11,7 @@ class CampsitesController < ApplicationController
   def create
     @campsite = Campsite.find_by(name: params[:campsite][:name])
     if @campsite
-      # flash[:message] = "A campsite with that name already exists!"
+      flash[:message] = "A campsite with that name already exists!"
       redirect_to new_campsite_path
     else
       @campsite = Campsite.create(campsite_args)
