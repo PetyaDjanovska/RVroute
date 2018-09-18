@@ -1,8 +1,9 @@
 <h1>Your favorite campsites are:</h1>
-<% @campsites.each do |campsite| %>
+<% @favorites.each do |fav| %>
 <p>
-	<h3><%= campsite.name %></h3>
-	<%= campsite.address %></br>
-	<%= campsite.description %></br>
+	<h3><%= fav.campsite.name %></h3>
+	<%= fav.campsite.address %></br>
+	<%= fav.campsite.description %></br>
+	<%= fav.note %>
 </p>
 <% end %>

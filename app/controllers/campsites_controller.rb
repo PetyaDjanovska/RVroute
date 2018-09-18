@@ -33,6 +33,11 @@ class CampsitesController < ApplicationController
     @campsite.update(address: params[:campsite][:address], description: params[:campsite][:description])
     redirect_to campsite_path(@campsite)
   end
+
+  def search
+     @list = Campsite.find_by_location(params[:location])
+  end
+  
   
  private
   def campsite_args

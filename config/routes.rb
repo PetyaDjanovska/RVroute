@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get '/favorites', to: 'favorites#index'
   post '/favorites', to: 'favorites#create'
   get '/best_campsite', to: 'favorites#most_favorite'
+  get '/favorites_with_notes', to: 'favorites#fav_with_notes'
+  get '/search', to: 'campsites#search'
 end
 
 

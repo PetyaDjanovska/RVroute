@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
   
  def index
-   @campsites = current_user.campsites
+   @favorites = current_user.favorites
    render 'index'
  end
  
@@ -22,4 +22,6 @@ class FavoritesController < ApplicationController
  def most_favorite
    @best = Favorite.most_favorite
  end
+ 
+
 end

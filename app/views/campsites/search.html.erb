@@ -1,0 +1,19 @@
+<h3> Search by location:</h3>
+<%= form_tag("/search", method: "get") do %>
+	<%= text_field_tag(:location)%>
+	<%= submit_tag ("Search") %>
+<% end %>
+
+</br>
+
+<% @list.map do |camp| %>
+<ul>
+	<li>
+		<%=  camp.name %>
+		in
+		<%= camp.address %>
+	</li>
+</ul>
+<% end %>
+
+
