@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
   
+  def index
+    @user = User.find_by(id: params[:id])
+    @comments = @user.comments
+  end
+  
 private
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation)

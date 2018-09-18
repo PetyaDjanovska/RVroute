@@ -17,6 +17,11 @@ class CommentsController < ApplicationController
     @comments = @campsite.comments
   end
   
+  def list
+    @user = current_user
+    @comments = @user.comments
+  end
+  
  private
   def comment_params
     params.require(:comment).permit(:title, :text)
