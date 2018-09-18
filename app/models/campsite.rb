@@ -6,6 +6,6 @@ class Campsite < ApplicationRecord
   has_many :comments
   
   def self.find_by_location(location)
-      Campsite.where("address = ?", location).order(:name)
+     where("address LIKE ?", location).order(:name)
   end
 end
