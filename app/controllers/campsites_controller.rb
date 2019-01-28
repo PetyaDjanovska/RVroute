@@ -2,6 +2,10 @@ class CampsitesController < ApplicationController
   
   def index
     @campsites = Campsite.all
+    respond_to do |f|
+			f.html {render :index}
+			f.json {render json: @campsites}
+		end
   end
   
   def new
@@ -11,11 +15,15 @@ class CampsitesController < ApplicationController
   def create
     @campsite = Campsite.find_by(name: params[:campsite][:name])
     if @campsite
-      flash[:message] = "A campsite with that name already exists!"
-      redirect_to new_campsite_path
+      # flash[:message] = ""
+      # redirect_to new_campsite_path
+      render json: {message: 'A campsite with that name already exists!'}
     else
       @campsite = Campsite.create(campsite_args)
-      redirect_to campsite_path(@campsite)
+      f.json {render json: @campsite}
+      # respond_to do |f|
+        # f.html {redirect_to campsite_path(@campsite)}
+      # end
     end
   end
   
