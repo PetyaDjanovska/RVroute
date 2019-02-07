@@ -2,10 +2,7 @@ class CampsitesController < ApplicationController
   
   def index
     @campsites = Campsite.all
-    respond_to do |f|
-			f.html {render :index}
-			f.json {render json: @campsites}
-		end
+    render json: @campsites
   end
   
   def new
@@ -30,6 +27,7 @@ class CampsitesController < ApplicationController
   def show
     @campsite = Campsite.find_by(id: params[:id])
     @comment = @campsite.comments.build
+    render json: @campsite
   end
   
   def edit
