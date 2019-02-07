@@ -9,11 +9,9 @@ function clearData() {
     $('#fetch-data').empty();
 }
 
-function listenForCamps () {
-    clearData();
-    console.log('clearData was called')
-
+function listenForCamps () { 
     $('#camps').on('click', function() {
+        clearData();
         listCamps();
     })
 
