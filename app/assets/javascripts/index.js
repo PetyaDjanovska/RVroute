@@ -1,5 +1,6 @@
 $(function() {
     listenForCamps();
+    listenForNewCamp();
 })
 
 
@@ -25,5 +26,7 @@ function listenForCamps () {
     });
 }
 
-
+function listenForNewCamp() {
+    $('#new_camp').on('click', newCampForm); // pass a reference to a function as a callback, and not the result of function execution
+}
 
