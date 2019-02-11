@@ -45,7 +45,7 @@ Campsite.prototype.campHTML = function () {
         <p>${this.address}</p>
         <p>${this.description}</p>
         <p>
-            ${(this.favorites && this.favorites.length) ? `&hearts; favorite` : `<button class="favorite">Add to Favorites</button>`}
+            ${(this.favorites && this.favorites.length) ? `&hearts; favorite` : `<button class="favorite" id=${this.id}>Add to Favorites</button>`}
         </p>
     </div>
     <br>
