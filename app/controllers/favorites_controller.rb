@@ -2,7 +2,8 @@ class FavoritesController < ApplicationController
   
  def index
    @favorites = current_user.favorites
-   render 'index'
+  #  render 'index'
+  render json: @favorites
  end
  
  def create
@@ -12,10 +13,12 @@ class FavoritesController < ApplicationController
    @favorite.user_id = current_user.id
    @favorite.note = params[:note]
    if @favorite.save
-    redirect_to favorites_path
+    # redirect_to favorites_path
+    render json: @favorite
    else
-    flash[:message] = @favorite.errors.messages[:favorite].first
-    redirect_to campsites_path
+    # flash[:message] = @favorite.errors.messages[:favorite].first
+    # redirect_to campsites_path
+    render json: {message: 'Unable to add to favorites!'}
    end
  end
  

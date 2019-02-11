@@ -4,6 +4,7 @@ class Campsite {
         this.name = obj.name;
         this.address = obj.address;
         this.description = obj.description;
+        this.favorites = obj.favorites
     }
 
     //Works as a static(class) method
@@ -38,14 +39,17 @@ class Campsite {
 
 // Works as an instance method
 Campsite.prototype.campHTML = function () {
-	return (`
-		<div>
-			<h3 class="item" id="${this.id}">${this.name}</h3>
-			<p>${this.address}</p>
-			<p>${this.description}</p>
-		</div>
-		<br>
-	`)
+    return (`
+    <div>
+        <h3 class="item" id="${this.id}">${this.name}</h3>
+        <p>${this.address}</p>
+        <p>${this.description}</p>
+        <p>
+            ${(this.favorites && this.favorites.length) ? `&hearts; favorite` : `<button class="favorite">Add to Favorites</button>`}
+        </p>
+    </div>
+    <br>
+    `)
 }
 
 function listCamps() {
@@ -105,7 +109,7 @@ function createCamp() {
 			},
                 body: JSON.stringify(camp)
             }).then(() => {
-                clearData()
+                clearData();
 		});
     })
 }
