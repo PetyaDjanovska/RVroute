@@ -6,29 +6,37 @@ class Campsite {
         this.description = obj.description;
     }
 
+    //Works as a static(class) method
     static campForm() {
-        // let campForm = (`
-        // <form id='new-camp-form'>
-        //     <!--name -->
-        //     <div>
-        //         <input type="text" placeholder="name">
-        //     </div>
+        return (`
+        <form id='new-camp-form'>
+            <h2>Create a new campsite below:</h2>
+            <!--name -->
+            <div>
+                <input type="text" placeholder="name">
+            </div>
 
-        //     <!--address -->
-        //     <div>
-        //         <input type="text" placeholder="address">
-        //     </div>
+            <!--address -->
+            <div>
+                <input type="text" placeholder="address">
+            </div>
 
-        //     <!--description -->
-        //     <div>
-        //         <input type="text" placeholder="description">
-        //     </div>
+            <!--description -->
+            <div>
+                <input type="text" placeholder="description">
+            </div>
 
-        // </form>
-        // `)
+            <!--submit -->
+            <div>
+                <button>Submit</button>
+            </div>
+
+        </form>
+        `)
     }
 }
 
+// Works as an instance method
 Campsite.prototype.campHTML = function () {
 	return (`
 		<div>
@@ -70,4 +78,9 @@ function showCamp(id) {
         var html = parser.parseFromString(currentCamp.campHTML(), 'text/html');    
         ul.append(html.body.firstChild);
     })
+}
+
+function newCampForm() {
+    clearData();
+    $('#fetch-data').append(Campsite.campForm());
 }
