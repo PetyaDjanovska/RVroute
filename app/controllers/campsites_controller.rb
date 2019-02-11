@@ -17,7 +17,7 @@ class CampsitesController < ApplicationController
       render json: {message: 'A campsite with that name already exists!'}
     else
       @campsite = Campsite.create(campsite_args)
-      f.json {render json: @campsite}
+        render json: @campsite
       # respond_to do |f|
         # f.html {redirect_to campsite_path(@campsite)}
       # end

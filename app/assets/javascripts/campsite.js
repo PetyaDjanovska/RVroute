@@ -83,4 +83,29 @@ function showCamp(id) {
 function newCampForm() {
     clearData();
     $('#fetch-data').append(Campsite.campForm());
+    createCamp();
+}
+
+function createCamp() {
+    $('#new-camp-form').on('submit', function(e) {
+        e.preventDefault();
+
+        let camp = {
+            name: e.target[0].value,
+            address: e.target[1].value,
+            description: e.target[2].value
+        }
+        console.log(camp);
+
+        fetch(`${baseUrl}campsites`, {
+			method: 'post',
+			headers: {
+				'Accept': 'application/json, text/plain, */*',
+				'Content-Type': 'application/json'
+			},
+                body: JSON.stringify(camp)
+            }).then(() => {
+                clearData()
+		});
+    })
 }
