@@ -110,6 +110,7 @@ function createCamp() {
                 body: JSON.stringify(camp)
             }).then(() => {
                 clearData();
+                listCamps();
 		});
     })
 }
