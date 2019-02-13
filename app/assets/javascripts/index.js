@@ -1,7 +1,7 @@
 $(function() {
     listenForCamps();
     listenForNewCamp();
-    // listenForFavorite();
+    listenForFavorites();
 })
 
 
@@ -32,4 +32,6 @@ function listenForNewCamp() {
     $('#new_camp').on('click', newCampForm); // pass a reference to a function as a callback, and not the result of function execution
 }
 
-
+function listenForFavorites() {
+    $('#favorites').on('click', displayFavorites);
+}

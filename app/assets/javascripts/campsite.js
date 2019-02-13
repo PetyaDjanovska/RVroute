@@ -52,6 +52,17 @@ Campsite.prototype.campHTML = function () {
     `)
 }
 
+Campsite.prototype.favCampHTML = function () {
+    return (`
+    <div>
+        <h3 class="item" id="${this.id}">${this.name}</h3>
+        <p>${this.address}</p>
+        <p>${this.description}</p>
+    </div>
+    <br>
+    `)
+}
+
 function listCamps() {
     const url = baseUrl + "campsites";
     const ul =  $('#fetch-data');
