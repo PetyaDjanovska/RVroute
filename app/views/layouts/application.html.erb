@@ -5,12 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  
+    <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
    <body>
-   	<div class="navigation">
+   	<div class="navigation block">
       <ul>
       <!--
         <a href="/campsites">All campsites</a>
@@ -21,13 +22,13 @@
         <a href="/search">Search by location</a>
         <a href="/list">List all my comments</a>
         -->
-        <button id='camps'>All camps</button>
-        <button id='new_camp'>New camp</button>
-        <button id='favorites'>My favorites</button>
+        <button id='camps' class='button is-primary'>All camps</button>
+        <button id='new_camp' class='button is-primary'>New camp</button>
+        <button id='favorites' class='button is-primary'>My favorites</button>
       </ul>
     </div>
     
-    <div class="container">
+    <div class="container block">
       <% flash.each do |key, message| %>
         <div class="alert alert-<%= key %>"><%= message %></div>
       <% end %>

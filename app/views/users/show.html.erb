@@ -1,7 +1,9 @@
+
 <% if logged_in? %>
-	<h1> Hi, <%= current_user.name %>!</h1>
+	<h3 class='title is-3'> Hi, <%= current_user.name %>!</h3>
 
 	<%= link_to "Log out", logout_path %>
 <% else %>
 	<% controller.redirect_to '/'%>
 <% end %>
+

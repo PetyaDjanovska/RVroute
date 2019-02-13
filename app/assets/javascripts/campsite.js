@@ -10,29 +10,31 @@ class Campsite {
     //Works as a static(class) method
     static campForm() {
         return (`
-        <form id='new-camp-form'>
-            <h2>Create a new campsite below:</h2>
-            <!--name -->
-            <div>
-                <input type="text" placeholder="name">
-            </div>
+        <div class="box">
+            <form id='new-camp-form'>
+                <h4 class="title is-4">Create a new campsite below:</h4>
+                <!--name -->
+                <div class="block">
+                    <input type="text" placeholder="name">
+                </div>
 
-            <!--address -->
-            <div>
-                <input type="text" placeholder="address">
-            </div>
+                <!--address -->
+                <div class="block">
+                    <input type="text" placeholder="address">
+                </div>
 
-            <!--description -->
-            <div>
-                <input type="text" placeholder="description">
-            </div>
+                <!--description -->
+                <div class="block">
+                    <input type="text" placeholder="description">
+                </div>
 
-            <!--submit -->
-            <div>
-                <button>Submit</button>
-            </div>
+                <!--submit -->
+                <div>
+                    <button class="button">Submit</button>
+                </div>
 
-        </form>
+            </form>
+        </div>
         `)
     }
 }
@@ -40,12 +42,12 @@ class Campsite {
 // Works as an instance method
 Campsite.prototype.campHTML = function () {
     return (`
-    <div>
-        <h3 class="item" id="${this.id}">${this.name}</h3>
-        <p>${this.address}</p>
+    <div class='box'>
+        <h4 class="item title is-4" id="${this.id}">${this.name}</h4>
+        <h4 class="subtitle">${this.address}</h4>
         <p>${this.description}</p>
         <p>
-            ${(this.favorites && this.favorites.length) ? `&hearts; favorite` : `<button class="favorite" id=${this.id}>Add to Favorites</button>`}
+            ${(this.favorites && this.favorites.length) ? `&hearts; favorite` : `<button class="button is-small is-primary is-outlined favorite" id=${this.id}>Add to Favorites</button>`}
         </p>
     </div>
     <br>
@@ -54,9 +56,9 @@ Campsite.prototype.campHTML = function () {
 
 Campsite.prototype.favCampHTML = function () {
     return (`
-    <div>
-        <h3 class="item" id="${this.id}">${this.name}</h3>
-        <p>${this.address}</p>
+    <div class='box'>
+        <h4 class="item title is-4" id="${this.id}">${this.name}</h4>
+        <h4 class="subtitle">${this.address}</h4>
         <p>${this.description}</p>
     </div>
     <br>

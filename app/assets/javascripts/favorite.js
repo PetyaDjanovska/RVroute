@@ -38,8 +38,9 @@ function displayFavorites() {
     .then (response => response.json())
     .then(data => {
         console.log(data);
+        clearData();
         let favs = data;
-        ul.append('<h2>Your favorite campsites are:</h2>')
+        ul.append('<div class="block"><h4 class="title is-4">Your favorite campsites are:</h4></div>')
         return favs.map(obj => {
         let currentFavCamp = new Campsite(obj.campsite);
         var parser = new DOMParser();
