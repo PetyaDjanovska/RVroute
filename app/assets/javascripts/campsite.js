@@ -47,8 +47,7 @@ Campsite.prototype.campHTML = function () {
         <h4 class="subtitle">${this.address}</h4>
         <p>${this.description}</p>
         <p>
-            ${isFavorite(this)}
-            
+            ${isFavorite(this)}   
         </p>
     </div>
     <br>
