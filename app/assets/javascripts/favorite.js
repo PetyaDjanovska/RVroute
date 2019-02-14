@@ -10,7 +10,8 @@ function createFovorite(e) {
     e.preventDefault();
     console.log(e.target.id);
     let url = window.location.pathname;
-    let user_id = url.substr(url.lastIndexOf('/')+1);
+    let user_id = currentUser();
+    console.log (`user_id in create fav is ${user_id}`)
 
     let favorite = {
         user_id: user_id,
@@ -40,7 +41,7 @@ function displayFavorites() {
         console.log(data);
         clearData();
         let favs = data;
-        ul.append('<div class="block"><h4 class="title is-4">Your favorite campsites are:</h4></div>')
+        ul.append(favsHeading(favs));
         return favs.map(obj => {
         let currentFavCamp = new Campsite(obj.campsite);
         var parser = new DOMParser();
@@ -48,4 +49,20 @@ function displayFavorites() {
         ul.append(html.body.firstChild);
         })
     })
+}
+
+function favsHeading(data) {
+    if(data.length) {
+        return (`
+        <div class="block">
+            <h4 class="title is-4">Your favorite campsites are:</h4>
+        </div>
+        `)
+    } else {
+        return (`
+        <div class="block">
+            <h4 class="title is-4">You have no favorites, yet!</h4>
+        </div>
+        `)
+    }
 }

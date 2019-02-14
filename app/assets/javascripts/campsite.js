@@ -47,7 +47,8 @@ Campsite.prototype.campHTML = function () {
         <h4 class="subtitle">${this.address}</h4>
         <p>${this.description}</p>
         <p>
-            ${(this.favorites && this.favorites.length) ? `&hearts; favorite` : `<button class="button is-small is-primary is-outlined favorite" id=${this.id}>Add to Favorites</button>`}
+            ${isFavorite(this)}
+            
         </p>
     </div>
     <br>
@@ -126,4 +127,17 @@ function createCamp() {
                 listCamps();
 		});
     })
+}
+
+function isFavorite(camp) {
+    let array = camp.favorites;
+    let flag = `<button class="button is-small is-primary is-outlined favorite" id=${camp.id}>Add to Favorites</button>`
+    let current_user_id = currentUser();
+
+    for (var i in array) {
+        if(array[i].user_id == current_user_id) {
+            flag = `&hearts; favorite`; 
+        }
+    }
+    return flag;
 }

@@ -1,6 +1,8 @@
 <%= form_for @user, url: 'signup' do |f| %>
-<p>Name: <%= f.text_field :name %></p>
-<p>Password: <%= f.password_field :password %></p>
-<p>Password confirmation: <%= f.password_field :password_confirmation %></p>
-<%= f.submit "Submit" %>
-<% end %>
+    <div class='block'>
+        <p>Name: <%= f.text_field :name %></p>
+        <p>Password: <%= f.password_field :password %></p>
+        <p>Password confirmation: <%= f.password_field :password_confirmation %></p>
+        <%= f.submit "Submit" %>
+        <% end %>
+    </div>
