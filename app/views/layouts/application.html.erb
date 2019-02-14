@@ -10,32 +10,34 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-   <body>
-   	<div class="navigation block">
-      <ul>
-      <!--
-        <a href="/campsites">All campsites</a>
-        <a href="/campsites/new">Add campsite	</a>
-        <a href="/favorites">Your personal favorites</a>
-        <a href="/users/<%= current_user.id%>">Your profile</a>
-        <a href="/best_campsite">Best campsite</a>
-        <a href="/search">Search by location</a>
-        <a href="/list">List all my comments</a>
-        -->
-        <button id='camps' class='button is-primary'>All camps</button>
-        <button id='new_camp' class='button is-primary'>New camp</button>
-        <button id='favorites' class='button is-primary'>My favorites</button>
-      </ul>
-    </div>
-    
-    <div class="container notification">
-      <% flash.each do |key, message| %>
-        <div class="alert alert-<%= key %>"><%= message %></div>
-      <% end %>
-      <%= yield %>
-    </div>
+   <body style="max-width: 600px; text-align: center;">
+   <div style="display: inline-block">
+      <div class="block">
+        <!--
+          <a href="/campsites">All campsites</a>
+          <a href="/campsites/new">Add campsite	</a>
+          <a href="/favorites">Your personal favorites</a>
+          <a href="/users/<%= current_user.id%>">Your profile</a>
+          <a href="/best_campsite">Best campsite</a>
+          <a href="/search">Search by location</a>
+          <a href="/list">List all my comments</a>
+          -->
+          <div class="nav">
+            <button id='camps' class='button is-primary'>All camps</button>
+            <button id='new_camp' class='button is-primary nav-item'>New camp</button>
+            <button id='favorites' class='button is-primary nav-item'>My favorites</button>
+          </div>
+      </div>
+      
+      <div class="container notification">
+        <% flash.each do |key, message| %>
+          <div class="alert alert-<%= key %>"><%= message %></div>
+        <% end %>
+        <%= yield %>
+      </div>
 
-    <div id="fetch-data">
+      <div id="fetch-data">
+      </div>
     </div>
    </body>
 </html>
