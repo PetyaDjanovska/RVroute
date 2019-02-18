@@ -7,7 +7,6 @@ class Favorite {
 
 
 function createFavorite(e) {
-    debugger;
     e.preventDefault();
     console.log(e.target.id);
     let user_id = currentUser();
@@ -27,7 +26,7 @@ function createFavorite(e) {
             body: JSON.stringify(favorite)
         }).then(() => {
             clearData();
-            listCamps(); // how to avoid rerendering the whole div?
+            displayFavorites();
     });
 }
 

@@ -66,6 +66,7 @@ Campsite.prototype.favCampHTML = function () {
 }
 
 function listCamps() {
+    clearData();
     const url = baseUrl + "campsites";
     const ul =  $('#fetch-data');
 

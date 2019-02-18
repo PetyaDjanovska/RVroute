@@ -13,7 +13,6 @@ class FavoritesController < ApplicationController
    @favorite.user_id = current_user.id
    @favorite.note = params[:note]
    if @favorite.save
-    # redirect_to favorites_path
     render json: @favorite
    else
     # flash[:message] = @favorite.errors.messages[:favorite].first
