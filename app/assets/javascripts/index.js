@@ -25,7 +25,7 @@ function listenForCamps () {
     });
 
     // the button only exists after camp list loads
-    $('div').on('click', 'button.favorite', createFovorite);
+    $('div').on('click', 'button.favorite', createFavorite);
 }
 
 function listenForNewCamp() {

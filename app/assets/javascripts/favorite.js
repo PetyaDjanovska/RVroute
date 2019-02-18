@@ -6,10 +6,10 @@ class Favorite {
 }
 
 
-function createFovorite(e) {
+function createFavorite(e) {
+    debugger;
     e.preventDefault();
     console.log(e.target.id);
-    let url = window.location.pathname;
     let user_id = currentUser();
     console.log (`user_id in create fav is ${user_id}`)
 
