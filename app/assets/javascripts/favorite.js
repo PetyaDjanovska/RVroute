@@ -25,14 +25,15 @@ function createFavorite(e) {
         },
             body: JSON.stringify(favorite)
         }).then(() => {
-            clearData();
-            displayFavorites();
+            listCamps();
     });
+    return false;
 }
 
 function displayFavorites() {
     const url = baseUrl + "favorites";
     const ul =  $('#fetch-data');
+    clearData();
 
     fetch(url)
     .then (response => response.json())
